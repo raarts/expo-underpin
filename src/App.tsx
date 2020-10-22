@@ -9,6 +9,7 @@ import { setColorScheme } from './store/system';
 import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
+import ViewportProvider from './underpin/ViewportProvider';
 
 export default function App(): ReactElement | null {
   const isLoadingComplete = useCachedResources();
@@ -23,12 +24,14 @@ export default function App(): ReactElement | null {
   }
   return (
     <PersistGate loading={null} persistor={persistor}>
-      <SafeAreaProvider>
-        <Provider store={store}>
-          <Navigation colorScheme={colorScheme} />
-          <StatusBar />
-        </Provider>
-      </SafeAreaProvider>
+      <ViewportProvider>
+        <SafeAreaProvider>
+          <Provider store={store}>
+            <Navigation colorScheme={colorScheme} />
+            <StatusBar />
+          </Provider>
+        </SafeAreaProvider>
+      </ViewportProvider>
     </PersistGate>
   );
 }
