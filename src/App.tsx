@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useReducer } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -11,6 +11,7 @@ import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
 import ViewportProvider from './underpin/ViewportProvider';
 import ThemeProvider from './underpin/ThemeProvider';
+import ErrorBoundary from './underpin/ErrorBoundary';
 import Navigation from './navigation';
 
 // How to extend the RootNavigator concept to apply to multiple form factors and orientations
@@ -39,6 +40,7 @@ import Navigation from './navigation';
 enableScreens();
 
 export default function App(): ReactElement | null {
+  const [, forceUpdate] = useReducer((x) => x + 1, 0);
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
 
@@ -54,10 +56,12 @@ export default function App(): ReactElement | null {
       <PersistGate loading={null} persistor={persistor}>
         <ViewportProvider>
           <ThemeProvider>
-            <SafeAreaProvider>
-              <Navigation />
-              <StatusBar />
-            </SafeAreaProvider>
+            <ErrorBoundary forceReload={forceUpdate}>
+              <SafeAreaProvider>
+                <Navigation />
+                <StatusBar />
+              </SafeAreaProvider>
+            </ErrorBoundary>
           </ThemeProvider>
         </ViewportProvider>
       </PersistGate>
