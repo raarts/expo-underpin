@@ -1,7 +1,9 @@
-import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
-import { ColorSchemeName } from 'react-native';
+import { useSelector } from 'react-redux';
+import ThemeProvider from '../underpin/ThemeProvider';
+import { RootState } from '../store';
 
 import NotFoundScreen from '../screens/NotFoundScreen';
 import { RootStackParamList } from '../../types';
@@ -10,9 +12,22 @@ import LinkingConfiguration from './LinkingConfiguration';
 
 // If you are not familiar with React Navigation, we recommend going through the
 // "Fundamentals" guide: https://reactnavigation.org/docs/getting-started
-export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }): React.ReactElement {
+export default function Navigation(): React.ReactElement {
+  const { colorScheme } = useSelector((state: RootState) => state.system);
+
+  const theme = {
+    dark: colorScheme === 'dark',
+    colors: {
+      primary: ThemeProvider.value('$navPrimary'),
+      background: ThemeProvider.value('$navBackground'),
+      card: ThemeProvider.value('$navCard'),
+      text: ThemeProvider.value('$navText'),
+      border: ThemeProvider.value('$navBorder'),
+      notification: ThemeProvider.value('$navPrimary'),
+    },
+  };
   return (
-    <NavigationContainer linking={LinkingConfiguration} theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <NavigationContainer linking={LinkingConfiguration} theme={theme}>
       <RootNavigator />
     </NavigationContainer>
   );

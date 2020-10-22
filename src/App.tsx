@@ -29,7 +29,7 @@ export default function App(): ReactElement | null {
         <ViewportProvider>
           <ThemeProvider>
             <SafeAreaProvider>
-              <Navigation colorScheme={colorScheme} />
+              <Navigation />
               <StatusBar />
             </SafeAreaProvider>
           </ThemeProvider>
