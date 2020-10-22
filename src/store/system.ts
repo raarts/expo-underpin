@@ -1,27 +1,27 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface CurrentSystem {
-  darkMode: boolean;
+  colorScheme: string;
 }
 type CurrentSystemState = {
   // other parameters here
 } & CurrentSystem;
 
 const initialState: CurrentSystemState = {
-  darkMode: false,
+  colorScheme: 'light',
 };
 
 const systemSlice = createSlice({
   name: 'system',
   initialState,
   reducers: {
-    setDarkMode: (state, action: PayloadAction<string>): CurrentSystemState => ({
+    setColorScheme: (state, action: PayloadAction<string>): CurrentSystemState => ({
       ...state,
-      darkMode: action.payload === 'dark',
+      colorScheme: action.payload,
     }),
   },
 });
 
-export const { setDarkMode } = systemSlice.actions;
+export const { setColorScheme } = systemSlice.actions;
 
 export default systemSlice.reducer;
