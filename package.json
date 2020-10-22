@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^10.0.0",
+    "@raarts/react-native-extended-stylesheet": "^0.12.0",
     "@react-native-community/async-storage": "^1.12.1",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/bottom-tabs": "^5.8.0",
@@ -69,6 +70,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-react-native": "^3.10.0",
     "husky": "^4.3.0",
     "jest-expo": "~39.0.0",
     "lint-staged": "^10.4.2",

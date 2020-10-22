@@ -10,6 +10,7 @@ import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
 import ViewportProvider from './underpin/ViewportProvider';
+import ThemeProvider from './underpin/ThemeProvider';
 
 export default function App(): ReactElement | null {
   const isLoadingComplete = useCachedResources();
@@ -23,15 +24,17 @@ export default function App(): ReactElement | null {
     return null;
   }
   return (
-    <PersistGate loading={null} persistor={persistor}>
-      <ViewportProvider>
-        <SafeAreaProvider>
-          <Provider store={store}>
-            <Navigation colorScheme={colorScheme} />
-            <StatusBar />
-          </Provider>
-        </SafeAreaProvider>
-      </ViewportProvider>
-    </PersistGate>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <ViewportProvider>
+          <ThemeProvider>
+            <SafeAreaProvider>
+              <Navigation colorScheme={colorScheme} />
+              <StatusBar />
+            </SafeAreaProvider>
+          </ThemeProvider>
+        </ViewportProvider>
+      </PersistGate>
+    </Provider>
   );
 }
