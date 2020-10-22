@@ -8,12 +8,32 @@ export default {
         screens: {
           TabOne: {
             screens: {
-              TabOneScreen: 'one',
+              TabOneScreen: 'tabone',
             },
           },
           TabTwo: {
             screens: {
-              TabTwoScreen: 'two',
+              TabTwoScreen: 'tabtwo',
+            },
+          },
+          TabThree: {
+            screens: {
+              TabThreeScreen: 'tabthree',
+            },
+          },
+          MenuOne: {
+            screens: {
+              TabOneScreen: 'menuone',
+            },
+          },
+          MenuTwo: {
+            screens: {
+              TabTwoScreen: 'menutwo',
+            },
+          },
+          MenuThree: {
+            screens: {
+              TabThreeScreen: 'menuthree',
             },
           },
         },
