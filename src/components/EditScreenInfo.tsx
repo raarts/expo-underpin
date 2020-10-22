@@ -6,12 +6,14 @@ import Colors from '../constants/Colors';
 import { MonoText } from './StyledText';
 import { Text, View } from './Themed';
 
+import { _ } from '../i18n';
+
 export default function EditScreenInfo({ path }: { path: string }): ReactElement {
   return (
     <View>
       <View style={styles.getStartedContainer}>
         <Text style={styles.getStartedText} lightColor="rgba(0,0,0,0.8)" darkColor="rgba(255,255,255,0.8)">
-          Open up the code for this screen:
+          {`${_('openFileForThisScreen')}:`}
         </Text>
 
         <View
