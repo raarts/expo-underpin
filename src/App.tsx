@@ -3,6 +3,7 @@ import React, { ReactElement } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import { enableScreens } from 'react-native-screens';
 import store, { persistor } from './store';
 import { setColorScheme } from './store/system';
 
@@ -33,6 +34,9 @@ import Navigation from './navigation';
 //     monitor: LandscapeMonitorRootStackNavigator,
 //   },
 // };
+
+// optimize screen memory usage, see: https://reactnavigation.org/docs/react-native-screens
+enableScreens();
 
 export default function App(): ReactElement | null {
   const isLoadingComplete = useCachedResources();
