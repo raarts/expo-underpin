@@ -24,7 +24,7 @@ export default function BottomTabNavigator(): ReactElement {
       }}
     >
       <BottomTab.Screen
-        name="Contacts"
+        name="Tab1"
         component={Tab1StackNavigator}
         options={{
           title: 'Tab1',
@@ -32,7 +32,7 @@ export default function BottomTabNavigator(): ReactElement {
         }}
       />
       <BottomTab.Screen
-        name="Calls"
+        name="Tab2"
         component={Tab2StackNavigator}
         options={{
           title: 'Tab2',
@@ -40,7 +40,7 @@ export default function BottomTabNavigator(): ReactElement {
         }}
       />
       <BottomTab.Screen
-        name="Settings"
+        name="Tab3"
         component={Tab3StackNavigator}
         options={{
           title: 'Tab3',
