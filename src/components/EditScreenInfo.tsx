@@ -1,37 +1,30 @@
 import * as WebBrowser from 'expo-web-browser';
 import React, { ReactElement } from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Text, View } from 'react-native';
 
-import Colors from '../constants/Colors';
 import { MonoText } from './StyledText';
-import { Text, View } from './Themed';
 
 import { _ } from '../i18n';
+import ThemeProvider, { applyTheme } from '../underpin/ThemeProvider';
 
 export default function EditScreenInfo({ path }: { path: string }): ReactElement {
+  const styles = applyTheme(localStyles);
   return (
     <View>
       <View style={styles.getStartedContainer}>
-        <Text style={styles.getStartedText} lightColor="rgba(0,0,0,0.8)" darkColor="rgba(255,255,255,0.8)">
-          {`${_('openFileForThisScreen')}:`}
-        </Text>
-
-        <View
-          style={[styles.codeHighlightContainer, styles.homeScreenFilename]}
-          darkColor="rgba(255,255,255,0.05)"
-          lightColor="rgba(0,0,0,0.05)"
-        >
+        <Text style={styles.getStartedText}>{`${_('openFileForThisScreen')}:`}</Text>
+        <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
           <MonoText>{path}</MonoText>
         </View>
 
-        <Text style={styles.getStartedText} lightColor="rgba(0,0,0,0.8)" darkColor="rgba(255,255,255,0.8)">
+        <Text style={styles.getStartedText}>
           Change any of the text, save the file, and your app will automatically update.
         </Text>
       </View>
 
       <View style={styles.helpContainer}>
         <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-          <Text style={styles.helpLinkText} lightColor={Colors.light.tint}>
+          <Text style={styles.helpLinkText}>
             Tap here if your app doesn&apos;t automatically update after making changes
           </Text>
         </TouchableOpacity>
@@ -46,60 +39,38 @@ function handleHelpPress() {
   ).then();
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  developmentModeText: {
-    marginBottom: 20,
-    fontSize: 14,
-    lineHeight: 19,
-    textAlign: 'center',
-  },
-  contentContainer: {
-    paddingTop: 30,
-  },
-  welcomeContainer: {
-    alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 20,
-  },
-  welcomeImage: {
-    width: 100,
-    height: 80,
-    resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
-  },
+const styles = ThemeProvider.create({
   getStartedContainer: {
     alignItems: 'center',
     marginHorizontal: 50,
+    backgroundColor: '$backgroundColor',
   },
   homeScreenFilename: {
     marginVertical: 7,
   },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
-  },
   codeHighlightContainer: {
     borderRadius: 3,
     paddingHorizontal: 4,
+    backgroundColor: '$backgroundColor',
   },
   getStartedText: {
     fontSize: 17,
     lineHeight: 24,
     textAlign: 'center',
+    color: '$textColor',
   },
   helpContainer: {
     marginTop: 15,
     marginHorizontal: 20,
     alignItems: 'center',
+    backgroundColor: '$backgroundColor',
   },
   helpLink: {
     paddingVertical: 15,
   },
   helpLinkText: {
     textAlign: 'center',
+    color: '$tintColor',
   },
 });
+const localStyles = styles;
