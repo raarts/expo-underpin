@@ -1,18 +1,18 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import React from 'react';
+import * as React from 'react';
+
 import { useSelector } from 'react-redux';
 import { ActivityIndicator, Linking, Platform } from 'react-native';
 import { StackHeaderMode } from '@react-navigation/stack/lib/typescript/src/types.d';
 import AsyncStorage from '@react-native-community/async-storage';
-import ThemeProvider from '../underpin/ThemeProvider';
-import { RootState } from '../store';
-import RootMenuBarNavigator from './RootMenuBarNavigator';
-
 import NotFoundScreen from '../screens/NotFoundScreen';
 import { RootStackParamList } from '../../types';
 import RootBottomTabNavigator from './RootBottomTabNavigator';
 import LinkingConfiguration from './LinkingConfiguration';
+import ThemeProvider from '../underpin/ThemeProvider';
+import { RootState } from '../store';
+import RootMenuBarNavigator from './RootMenuBarNavigator';
 
 const PERSISTENCE_KEY = 'NAVIGATION_STATE';
 

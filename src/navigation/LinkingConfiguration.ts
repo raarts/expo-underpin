@@ -21,6 +21,11 @@ export default {
               TabThreeScreen: 'tabthree',
             },
           },
+          MenuHome: {
+            screens: {
+              MenuHomeScreen: 'menuhome',
+            },
+          },
           MenuOne: {
             screens: {
               TabOneScreen: 'menuone',
@@ -33,7 +38,7 @@ export default {
           },
           MenuThree: {
             screens: {
-              TemplateLoginScreen: 'menuthree',
+              TabThreeScreen: 'menuthree',
             },
           },
         },
