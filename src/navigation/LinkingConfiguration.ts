@@ -33,7 +33,7 @@ export default {
           },
           MenuThree: {
             screens: {
-              TabThreeScreen: 'menuthree',
+              TemplateLoginScreen: 'menuthree',
             },
           },
         },

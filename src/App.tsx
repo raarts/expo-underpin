@@ -12,6 +12,7 @@ import useColorScheme from './hooks/useColorScheme';
 import ViewportProvider from './underpin/ViewportProvider';
 import ThemeProvider from './underpin/ThemeProvider';
 import ErrorBoundary from './underpin/ErrorBoundary';
+import KeycloakAuthentication from './underpin/KeycloakAuthentication';
 import Navigation from './navigation';
 
 // How to extend the RootNavigator concept to apply to multiple form factors and orientations
@@ -57,10 +58,15 @@ export default function App(): ReactElement | null {
         <ViewportProvider>
           <ThemeProvider>
             <ErrorBoundary forceReload={forceUpdate}>
-              <SafeAreaProvider>
-                <Navigation />
-                <StatusBar />
-              </SafeAreaProvider>
+              <KeycloakAuthentication
+                urlDiscovery={process.env.KEYCLOAK_DISCOVERY_URL || ''}
+                clientId={process.env.CLIENTID || ''}
+              >
+                <SafeAreaProvider>
+                  <Navigation />
+                  <StatusBar />
+                </SafeAreaProvider>
+              </KeycloakAuthentication>
             </ErrorBoundary>
           </ThemeProvider>
         </ViewportProvider>

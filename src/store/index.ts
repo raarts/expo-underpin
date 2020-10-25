@@ -5,9 +5,11 @@ import { createLogger } from 'redux-logger';
 import AsyncStorage from '@react-native-community/async-storage';
 import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE } from 'redux-persist/es/constants';
 import systemReducer from './system';
+import identityReducer from './identity';
 
 const rootReducer = combineReducers({
   system: systemReducer,
+  identity: identityReducer,
 });
 export type RootState = ReturnType<typeof rootReducer>;
 

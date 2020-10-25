@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { ReactElement } from 'react';
-import TabThreeScreen from '../screens/TabThreeScreen';
+import TemplateLoginScreen from '../screens/TemplateLoginScreen';
 
 const Stack = createStackNavigator();
 
@@ -14,7 +14,7 @@ export type Tab3StackParamList = {
 const Tab3StackNavigator = (): ReactElement => {
   return (
     <Stack.Navigator headerMode="none" mode="modal">
-      <Stack.Screen name="TabThreeScreen" component={TabThreeScreen} />
+      <Stack.Screen name="TemplateLoginScreen" component={TemplateLoginScreen} />
     </Stack.Navigator>
   );
 };
