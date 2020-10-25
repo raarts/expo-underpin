@@ -55,6 +55,13 @@ module.exports = {
     'react/prop-types': 0,
     'react/jsx-props-no-spreading': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.ts', '.tsx'] }],
+    '@typescript-eslint/ban-ts-comment': [
+      'error',
+      {
+        'ts-nocheck': 'allow-with-description',
+        'ts-ignore': 'allow-with-description',
+      },
+    ],
     '@typescript-eslint/camelcase': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-use-before-define': ['error', { variables: false, functions: false }],

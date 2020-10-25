@@ -19,7 +19,7 @@ export default function MenuBar({ state, descriptors, navigation }: MaterialTopT
       {viewportOrientation !== 'portrait' && viewportFormFactor !== 'phone' && <Text>Logo</Text>}
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
-        const textRef = React.useRef<Text>(null);
+        const textRef = React.useRef<Animated.Text>(null);
         const label = options.title !== undefined ? options.title : route.name;
         const isSelected = state.index === index;
 
@@ -49,11 +49,23 @@ export default function MenuBar({ state, descriptors, navigation }: MaterialTopT
             testID={options.tabBarTestID}
             onPress={onPress}
             style={styles.touchableOpacity}
-            onMouseEnter={(): void => textRef.current.setNativeProps({ style: EStyleSheet.flatten(hoverTextStyle) })}
-            onMouseLeave={(): void => textRef.current.setNativeProps({ style: EStyleSheet.flatten(textStyle) })}
+            // @ts-ignore cannot be typed correctly currently
+            onMouseEnter={(): void => {
+              if (textRef.current) {
+                // @ts-ignore cannot be typed correctly currently
+                textRef.current.setNativeProps({ style: EStyleSheet.flatten(hoverTextStyle) });
+              }
+            }}
+            onMouseLeave={(): void => {
+              if (textRef.current) {
+                // @ts-ignore cannot be typed correctly currently
+                textRef.current.setNativeProps({ style: EStyleSheet.flatten(textStyle) });
+              }
+            }}
           >
             <Animated.Text
               ref={(ref): void => {
+                // @ts-ignore cannot be typed correctly currently
                 textRef.current = ref;
               }}
               numberOfLines={1}
@@ -91,13 +103,15 @@ const styles = ThemeProvider.create({
   },
   textStyleHover: {
     color: '$textColor',
+    fontWeight: 'bold',
   },
   selectedTextStyle: {
     color: '$menuSelectedTextColor',
     backgroundColor: '$menuSelectedBackgroundColor',
   },
   selectedHoverTextStyle: {
-    color: '$textColor',
+    color: '$menuSelectedBrightTextColor',
+    fontWeight: 'bold',
   },
 });
 const baseStyles = styles;
