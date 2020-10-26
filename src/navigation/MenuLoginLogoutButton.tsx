@@ -1,6 +1,5 @@
 // @ts-nocheck onMouseEnter and setNativeProps cannot be typed correctly currently
 import { TouchableOpacity } from 'react-native';
-import EStyleSheet from '@raarts/react-native-extended-stylesheet';
 import Animated from 'react-native-reanimated';
 import * as React from 'react';
 import ThemeProvider, { applyTheme } from '../underpin/ThemeProvider';
@@ -30,12 +29,12 @@ const MenuLoginLogoutButton = (): React.ReactElement => {
       style={styles.touchableOpacity}
       onMouseEnter={(): void => {
         if (textRef.current) {
-          textRef.current.setNativeProps({ style: EStyleSheet.flatten(hoverTextStyle) });
+          textRef.current.setNativeProps({ style: ThemeProvider.flatten(hoverTextStyle) });
         }
       }}
       onMouseLeave={(): void => {
         if (textRef.current) {
-          textRef.current.setNativeProps({ style: EStyleSheet.flatten(textStyle) });
+          textRef.current.setNativeProps({ style: ThemeProvider.flatten(textStyle) });
         }
       }}
     >

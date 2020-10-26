@@ -58,5 +58,7 @@ ThemeProvider.value = (expr: any, transparency?: string): any => {
   return value;
 };
 
+ThemeProvider.flatten = EStyleSheet.flatten;
+
 export default ThemeProvider;
 export { applyTheme };
