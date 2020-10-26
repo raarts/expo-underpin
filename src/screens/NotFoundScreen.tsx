@@ -1,10 +1,12 @@
 import { StackScreenProps } from '@react-navigation/stack';
 import React, { ReactElement } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 
 import { RootStackParamList } from '../../types';
+import ThemeProvider, { applyTheme } from '../underpin/ThemeProvider';
 
 export default function NotFoundScreen({ navigation }: StackScreenProps<RootStackParamList, 'NotFound'>): ReactElement {
+  const styles = applyTheme(localStyles);
   return (
     <View style={styles.container}>
       <Text style={styles.title}>This screen doesn&pos;t exist.</Text>
@@ -15,7 +17,7 @@ export default function NotFoundScreen({ navigation }: StackScreenProps<RootStac
   );
 }
 
-const styles = StyleSheet.create({
+const styles = ThemeProvider.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -36,3 +38,4 @@ const styles = StyleSheet.create({
     color: '#2e78b7',
   },
 });
+const localStyles = styles;

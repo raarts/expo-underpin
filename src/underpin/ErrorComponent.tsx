@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, Text, View } from 'react-native';
 import * as React from 'react';
+import ThemeProvider, { applyTheme } from './ThemeProvider';
 
 export type ErrorComponentProps = {
   forceReload: () => void;
@@ -10,6 +11,8 @@ export type ErrorComponentProps = {
 export default function ErrorComponent({ error, forceReload }: ErrorComponentProps): ReactNode {
   // eslint-disable-next-line no-console
   console.log('error:', error || 'null error');
+  const styles = applyTheme(localStyles);
+
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Oops!</Text>
@@ -33,7 +36,7 @@ export default function ErrorComponent({ error, forceReload }: ErrorComponentPro
   );
 }
 
-const styles = StyleSheet.create({
+const styles = ThemeProvider.create({
   container: {
     flex: 1,
     alignItems: 'center',
@@ -57,3 +60,4 @@ const styles = StyleSheet.create({
     fontSize: 24,
   },
 });
+const localStyles = styles;
