@@ -10,7 +10,7 @@ export default function TabOneScreen(): ReactElement {
     <View style={styles.container}>
       <Text style={styles.title}>Tab One</Text>
       <View style={styles.separator} />
-      <EditScreenInfo path="/screens/TabOneScreen.js" />
+      <EditScreenInfo path="/screens/TabOneScreen.tsx" />
     </View>
   );
 }

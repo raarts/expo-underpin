@@ -5,10 +5,10 @@ import TabTwoScreen from '../screens/TabTwoScreen';
 
 const Stack = createStackNavigator();
 
-// export type Tab2StackParamList = {
-//   CallHistoryScreen: undefined;
-//   CallDetailScreen: { id: number };
-// };
+export type Tab2StackParamList = {
+  CallHistoryScreen: undefined;
+  CallDetailScreen: { id: number };
+};
 
 const Tab2StackNavigator = (): ReactElement => {
   return (

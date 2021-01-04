@@ -40,10 +40,6 @@ module.exports = {
     'react-native/style-sheet-object-names': ['ThemeProvider'],
   },
   rules: {
-    'global-require': 0,
-    'max-len': ['error', { code: 120, comments: 130 }],
-    'no-plusplus': 0,
-    'no-use-before-define': [0],
     'import/extensions': [
       'error',
       'ignorePackages',
@@ -53,13 +49,18 @@ module.exports = {
         tsx: 'never',
       },
     ],
+    'global-require': 0,
+    'max-len': ['error', { code: 120, comments: 130 }],
+    'no-plusplus': 0,
     'import/prefer-default-export': 0,
     'react/require-default-props': 0,
     'react/prop-types': 0,
     'react/jsx-props-no-spreading': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.ts', '.tsx'] }],
+    'no-use-before-define': [0],
     'react-native/no-color-literals': 0,
     'react-native/sort-styles': 0,
+    '@typescript-eslint/camelcase': 'off',
     '@typescript-eslint/ban-ts-comment': [
       'error',
       {
@@ -67,7 +68,6 @@ module.exports = {
         'ts-ignore': 'allow-with-description',
       },
     ],
-    '@typescript-eslint/camelcase': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-use-before-define': ['error', { variables: false, functions: false }],
   },

@@ -5,10 +5,10 @@ import TabOneScreen from '../screens/TabOneScreen';
 
 const Stack = createStackNavigator();
 
-// export type Tab1StackParamList = {
-//   ContactsScreen: undefined;
-//   ContactDetailScreen: { id: string };
-// };
+export type Tab1StackParamList = {
+  ContactsScreen: undefined;
+  ContactDetailScreen: { id: string };
+};
 
 const Tab1StackNavigator = (): ReactElement => {
   return (

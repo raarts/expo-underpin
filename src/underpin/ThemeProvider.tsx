@@ -3,8 +3,8 @@ import EStyleSheet, { AnyObject } from '@raarts/react-native-extended-stylesheet
 import { useSelector } from 'react-redux';
 import { useViewport } from './ViewportProvider';
 import { RootState } from '../store';
-import themes from '../constants/themes';
-import styles from '../constants/styles';
+import themes from '../constants/themes/themes';
+import styles from '../constants/themes/styles';
 
 const ThemeContext = React.createContext({});
 

@@ -12,7 +12,7 @@ const TabBarIcon = ({ name, focused }: Props): ReactElement => {
   const styles = applyTheme(baseStyles);
   const { color } = styles.selected;
   const { backgroundColor } = styles.default;
-  return <FontAwesome name={name} size={26} style={styles.icon} color={focused ? color : backgroundColor} />;
+  return <FontAwesome name={name as any} size={26} style={styles.icon} color={focused ? color : backgroundColor} />;
 };
 
 const styles = ThemeProvider.create({

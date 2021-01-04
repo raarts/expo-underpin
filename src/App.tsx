@@ -11,9 +11,9 @@ import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
 import ViewportProvider from './underpin/ViewportProvider';
 import ThemeProvider from './underpin/ThemeProvider';
+import Navigation from './navigation';
 import ErrorBoundary from './underpin/ErrorBoundary';
 import KeycloakAuthentication from './underpin/KeycloakAuthentication';
-import Navigation from './navigation';
 
 // How to extend the RootNavigator concept to apply to multiple form factors and orientations
 // import PortraitPhoneRootStackNavigator from './navigation/portrait/phone/RootStackNavigator';
